@@ -59,10 +59,22 @@ void arr_max_heapify(struct arr *this) {
     _max_heapify(this->values, 0, this->count);
 }
 
+void _heapsort(int data[], int count) {
+    if(count < 2)
+        return;
+    _max_heapify(data, 0, count);
+    _swap(data, 0, count - 1);
+    _heapsort(data, count - 1);
+}
+
+void arr_heapsort(struct arr *this) {
+    _heapsort(this->values, this->count);
+}
+
 int main(void) {
     struct arr *arr = arr_create(10, 100);
     arr_print(arr);
-    arr_max_heapify(arr);
+    arr_heapsort(arr);
     arr_print(arr);
     arr_free(arr);
 }
