@@ -20,7 +20,15 @@ void arr_free(struct arr *this) {
     free(this);
 }
 
+void arr_print(struct arr *this) {
+    printf("[ ");
+    for(int i = 0; i < this->count; ++i)
+        printf("%d ", this->values[i]);
+    printf("]\n");
+}
+
 int main(void) {
     struct arr *arr = arr_create(10, 100);
+    arr_print(arr);
     arr_free(arr);
 }
