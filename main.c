@@ -55,10 +55,6 @@ void _max_heapify(int data[], int head, int count) {
     }
 }
 
-void arr_max_heapify(struct arr *this) {
-    _max_heapify(this->values, 0, this->count);
-}
-
 void _heapsort(int data[], int count) {
     if(count < 2)
         return;
