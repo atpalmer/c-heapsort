@@ -68,7 +68,7 @@ void arr_heapsort(struct arr *this) {
 }
 
 int main(void) {
-    struct arr *arr = arr_create(10, 100);
+    struct arr *arr = arr_create(20, 100);
     arr_print(arr);
     arr_heapsort(arr);
     arr_print(arr);
