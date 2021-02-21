@@ -4,12 +4,13 @@
 
 struct arr {
     int count;
-    int values[];
+    int *values;
 };
 
 struct arr *arr_create(int count, int mod) {
     srand(time(NULL));
-    struct arr *new = malloc(sizeof(struct arr) + count * sizeof(int));
+    struct arr *new = malloc(sizeof(struct arr));
+    new->values = malloc(count * sizeof(int));
     new->count = count;
     for(int i = 0; i < count; ++i) {
         new->values[i] = rand() % mod;
@@ -18,6 +19,7 @@ struct arr *arr_create(int count, int mod) {
 }
 
 void arr_free(struct arr *this) {
+    free(this->values);
     free(this);
 }
 
